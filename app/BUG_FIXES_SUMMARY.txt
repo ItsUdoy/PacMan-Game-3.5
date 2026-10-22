@@ -1,0 +1,58 @@
+PAC-MAN 3.3 - THREE UI LAYOUT BUG FIXES
+=========================================
+
+BUG 1: Duplicate "GHOSTS EATEN" Label
+--------------------------------------
+File: PacManGame.java, buildGameScreen() method
+Root cause: ghostCounterLabel initialized with "GHOSTS EATEN: 0/3" at line 1617,
+then buildGameScreen() added another "GHOSTS EATEN:" label before it at line 1846,
+resulting in "GHOSTS EATEN: GHOSTS EATEN: 0/3".
+Fix: Removed the duplicate label addition. The ghostCounterLabel now displays
+"GHOSTS EATEN: 0/3" only once.
+
+Bug fix location: Line 1846-1847 removed:
+  scoreBox.add(label("GHOSTS EATEN:", vt(12f), CYAN300));
+  scoreBox.add(ghostCounterLabel);
+Now only: scoreBox.add(ghostCounterLabel);
+
+Bug result: HUD displays cleanly: "GHOSTS EATEN: 0/3"
+
+Bug 2: Missing Heart Icons in LIVES Section
+--------------------------------------------
+File: PacManGame.java, LivesPanel class
+Root cause: LivesPanel.setPreferredSize() was new Dimension(3 * 24, 22) = 72 pixels wide,
+but the game allows up to 5 lives. When players had 4 or 5 lives, the extra hearts
+were drawn at x positions 96, 120+ which exceeded the panel's 72-pixel width, making
+them invisible or clipped.
+Fix: Changed setPreferredSize(new Dimension(3 * 24, 22))
+      to setPreferredSize(new Dimension(5 * 24, 22))
+So the panel is 120 pixels wide, accommodating all 5 heart icons.
+
+Bug result: Hearts 1-5 render cleanly in the LIVES section of the HUD.
+
+Bug 3: Game Over Screen Overlay Overlap
+----------------------------------------
+File: PacManGame.java, syncOverlay() method
+Root cause: The CONTINUE button from the canvas overlay was visible during Game Over,
+appearing directly over the stats text (Player, Score, Map, Difficulty, Mazes Cleared,
+Extra Hearts, Rank), making them unreadable. The overlayVisible flag was true for both
+Paused and Game Over states, and the CONTINUE button had no gameOver check.
+Fix: Modified syncOverlay() to check gameOver state:
+  if (gameOver) {
+      overlayBtn.setVisible(false);
+  } else {
+      overlayBtn.setVisible(overlayVisible);
+  }
+The CONTINUE button is now hidden during Game Over, while the stats subtitle
+still displays correctly. Action access via keyboard keys (ESCAPE→menu, 'L'→leaderboard,
+ENTER→play again) remains functional.
+
+Bug result: Game Over screen displays all stats cleanly without the CONTINUE button
+overlaying the text. Players can use keyboard shortcuts or the existing PLAY AGAIN/
+LEADERBOARD/MAIN MENU actions.
+
+VERIFICATION:
+- All three fixes compile successfully with javac PacManGame.java
+- No regressions - all existing features preserved
+- Priority order: Fix critical rendering bug first, then UI layout, then visual polish
+- Priority order: Preserve existing UI first, fix functionality second

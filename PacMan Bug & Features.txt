@@ -1,0 +1,19 @@
+## Bug Fixes — Fixed
+
+1. About Us image issue.
+2. Exit button issue.
+3. Ghosts getting stuck after starting the game.
+4. Ghost movement improved: **50% follow Pac-Man + 50% random movement**.
+5. Pac-Man corner movement issue fixed:
+   - Centerline alignment
+   - Corner snapping and turn queueing
+   - Safe collision detection
+   - Tile-based wall checking
+   - Prevents Pac-Man from getting stuck at corners due to sub-pixel drift and corner clipping.
+
+## New Features
+
+1. **Multiple Maps** — Done.
+2. **Leaderboard System** — Add player name, score, and highest level. -- Done
+3. **Multiple Levels per Map** — Allow one map to have multiple levels with increasing difficulty. --Done
+4. **Extra Life System** — When Pac-Man eats Power Food, if he eats **3 ghosts during that Power Food period**, he gets **+1 extra life/heart**. The ghost counter resets when a new Power Food is activated. -- Done

@@ -1,0 +1,60 @@
+PAC-MAN 3.3 - FINAL FIXES COMPLETE
+===================================
+
+ISSUES FIXED:
+
+1. LEADERBOARD BLANK WHITE SCREEN (CRITICAL)
+   - Root cause: LeaderboardTable.paintComponent() accessed columns[8] 
+     but the int[] columns array only has 8 elements (indices 0-7)
+   - Fix: Changed columns[8] to columns[6]+columns[7] in two places:
+     * DATE column header rendering (line 2350)
+     * Empty row date display (line 2395)
+   - Result: ArrayIndexOutOfBoundsException fixed, leaderboard renders correctly
+
+2. DIFFICULTY DISPLAY ON HUD
+   - Added difficultyLabel showing "DIFF: EASY/NORMAL/HARD"
+   - Uses existing VT323 font and CYAN300 color
+   - Updated in updateHud() every frame
+
+3. MAZE-CLEAR COUNT ON HUD
+   - Added mazesLabel showing "MAZES: X/50"
+   - Uses existing VT323 font and CYAN300 color
+   - Updated in updateHud() every frame
+   - Displays current maze count during gameplay
+
+4. GAME OVER SCREEN ORGANIZATION
+   - Added buildGameOverSubtitle() method generating multi-line subtitle:
+     PLAYER, SCORE, MAP+DIFF, MAZES, HEARTS, BEST: YES/NO, RANK 1-10
+   - CanvasPanel.paintComponent() now splits and draws subtitle lines
+     with 16px spacing using existing pixel font and CYAN300
+
+5. GAME OVER KEY BINDINGS
+   - ESCAPE: Returns to main menu, resets gameOver state
+   - 'L' key: Opens leaderboard screen
+   - ENTER: Plays again (starts new game)
+
+6. LEADERBOARD DATA FORMAT
+   - saveLeaderboardEntry() saves 9 fields: id, score, map, difficulty,
+     mazesCleared, extraHeartsEarned, date, recordedAt, playerName
+   - loadLeaderboard() handles both old 6-field records (default values)
+     and new 9-field records (full data)
+   - LeaderboardTable displays 8 columns: #, PLAYER, SCORE, MAP,
+     DIFFICULTY, MAZES, HEARTS, DATE
+
+PRESERVED (NO UI CHANGES):
+- All colors, gradients, borders, shadows, glow effects
+- All fonts (VT323, Press Start 2P) and typography
+- All layouts, spacing, margins, alignment
+- All existing buttons, menus, cards, panels
+- All animations, sound effects, sprites, game assets
+- All CRT, pixel-art, neon, arcade effects
+- No new screens or components introduced
+
+CODE QUALITY:
+- Minimal, targeted changes only
+- No regressions - all existing features preserved
+- Compilation: Successful
+- Priority order followed: Fix blank leaderboard first, then functionality
+
+FILES MODIFIED:
+- PacManGame.java (single file) containing all changes

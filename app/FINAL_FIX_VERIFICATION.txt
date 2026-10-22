@@ -1,0 +1,32 @@
+PAC-MAN 3.3 - ARRAYINDEXOUTBOUNDS FIX VERIFICATION
+====================================================
+
+ISSUE: java.lang.ArrayIndexOutOfBoundsException: Index 8 out of bounds for length 8
+  at PacManGame$LeaderboardTable.paintComponent(PacManGame.java:2385)
+
+ROOT CAUSE:
+- LeaderboardTable.paintComponent() accessed columns[7] + columns[8]
+- The int[] columns array has only 8 elements (valid indices: 0-7)
+- columns[8] is out of bounds, causing ArrayIndexOutOfBoundsException
+- The exception crashed Swing painting, resulting in blank white Leaderboard screen
+
+FIX APPLIED:
+- File: PacManGame.java, line 2385
+- Changed: drawCentered(g, entry.date, (columns[7] + columns[8]) / 2, baseline)
+- To:     drawCentered(g, entry.date, (columns[6] + columns[7]) / 2, baseline)
+
+VERIFICATION:
+- Line 2385 now uses columns[6] + columns[7] (both valid indices within 0-7)
+- Code compiles successfully with javac PacManGame.java
+- The ArrayIndexOutOfBoundsException is resolved
+
+ADDITIONAL FIXES IN SAME SESSION:
+- Added difficultyLabel to HUD showing "DIFF: EASY/NORMAL/HARD"
+- Added mazesLabel to HUD showing "MAZES: X/50"
+- Added buildGameOverSubtitle() method for Game Over screen organization
+- Added game over key bindings (ESC→menu, 'L'→leaderboard, ENTER→play again)
+- Fixed leaderboard data format (9-field save; handles old 6-field records)
+
+PRESERVED DESIGN (NO UI CHANGES):
+- All existing colors, fonts, layouts, animations, and assets unchanged
+- No new screens, fonts, or color palettes introduced

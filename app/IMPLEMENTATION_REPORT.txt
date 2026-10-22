@@ -1,0 +1,87 @@
+PAC-MAN 3.3 - IMPLEMENTATION REPORT
+================================
+
+ISSUES FIXED:
+-------------
+
+1. LEADERBOARD - MISSING DIFFICULTY, MAZES CLEARED, AND HEARTS COLUMNS
+   FIX: Added three new columns to the LeaderboardTable class:
+   - DIFFICULTY column: Shows the difficulty level (EASY/NORMAL/HARD)
+   - MAZES cleared column: Shows number of mazes completed
+   - HEARTS column: Shows extra hearts earned during the run
+   
+   Changes made to LeaderboardTable.paintComponent():
+   - Added diffEnd and heartsEnd column position calculations
+   - Updated columns array from 6 entries to 8 entries
+   - Added "DIFFICULTY", "MAZES", "HEARTS" header labels
+   - Updated data row display to show entry.difficulty, entry.mazesCleared, entry.extraHeartsEarned
+   - Updated empty row placeholder to include new columns
+   
+   The LeaderboardEntry class already contained these fields (difficulty, mazesCleared, extraHeartsEarned)
+   - they were just not being displayed. Now they are properly shown in the leaderboard table.
+
+2. GAME OVER SCREEN - DISPLAY ISSUE
+   FIX: Updated the game over overlay to display complete run data with multi-line subtitle:
+   
+   a) buildGameOverSubtitle() method now generates subtitle containing:
+      - PLAYER: [player name]
+      - SCORE: [formatted score]
+      - MAP: [map name] (DIFF: [difficulty])
+      - MAZES: [mazes cleared]
+      - HEARTS: [extra hearts earned]
+      - BEST: YES/NO (personal best indicator)
+      - RANK: [1-10] of 10
+   
+   b) CanvasPanel.paintComponent() updated to handle multi-line subtitle:
+      - Splits subtitle by newline character
+      - Draws each line centered with 16px spacing
+      - Uses existing pixel font and CYAN300 color consistent with HUD
+   
+   c) Added game over key bindings:
+      - ESCAPE: Returns to main menu
+      - 'L' key: Opens leaderboard
+      - ENTER: Plays again (starts new game)
+
+3. GHOST COUNTER HUD DISPLAY
+   FIX: Added ghost counter display to the game HUD:
+   - ghostCounterLabel: Shows "GHOSTS EATEN: 0/3" in the top-left score area
+   - Updated in updateHud() method every frame
+   - Uses existing VT323 font and CYAN300 color consistent with HUD style
+   - Counter logic already existed and works correctly:
+     * Counts ghosts only when eaten during active Power Food effect
+     * Progress persists across Power Food expirations
+     * Progress persists across maze transitions
+     * Resets on new game run
+     * Three eligible ghosts trigger reward cycle (extra life, capped at 5 lives)
+
+4. PLAYER NAME SCREEN - DIFFICULTY SELECTION
+   FIX: Added difficulty selection (EASY/NORMAL/HARD) to the player name entry dialog:
+   - Three JRadio buttons added (EASY, NORMAL, HARD)
+   - Difficulty saved when player confirms name entry
+   - Map caption now displays: "PLAYER: [name] | MAP-[num]: [name] DIFF: [label]"
+   - Existing 12-character name validation preserved (was already implemented)
+
+PRESERVED EXISTING DESIGN:
+-------------------------
+- All UI colors, gradients, borders, shadows, and glow effects unchanged
+- All fonts and typography preserved (VT323, Press Start 2P)
+- All layouts, spacing, margins, and alignment unchanged
+- All existing buttons, menus, cards, panels, and screen transitions preserved
+- All existing animations, sound effects, sprites, and game assets preserved
+- All CRT, pixel-art, neon, and arcade effects preserved
+- All existing features working (movement, collision, Power Food, etc.)
+
+COMPILATION:
+------------
+- PacManGame.java compiles successfully with javac
+- No syntax errors or breakage of existing functionality
+
+FILES MODIFIED:
+---------------
+- PacManGame.java (single file) containing all changes
+
+PRIORITY ORDER FOLLOWED:
+------------------------
+1. Preserve existing UI first ✓
+2. Implement requested functionality second ✓
+3. Avoid unrelated changes entirely ✓

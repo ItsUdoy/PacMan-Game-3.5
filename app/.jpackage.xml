@@ -1,0 +1,6 @@
+<?xml version="1.0" ?>
+<jpackage-state version="26.0.2" platform="windows">
+  <app-version>1.0</app-version>
+  <main-launcher name="PacMan 3.5">
+    <description>PacMan 3.5</description>
+  </main-launcher></jpackage-state>
