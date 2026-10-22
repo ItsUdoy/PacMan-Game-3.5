@@ -1,3 +1,9 @@
+
+
+
+
+
+
 # 👾 Pac-Man Classic Arcade Edition (v3.5)
 
 ![Java](https://img.shields.io/badge/Language-Java-orange.svg)
@@ -26,15 +32,15 @@ Developed as an academic team project by **BUP CSE - 4**.
 
 | Main Menu | Map Selection |
 | :---: | :---: |
-| <!-- Main Menu --> <img src="https://github.com/user-attachments/assets/baf6e889-ecd4-49ca-91d9-9197826ae722" alt="Main Menu" width="450" /> | <!-- Map Selection --> <img src="https://github.com/user-attachments/assets/4958c672-4507-4594-ba8d-86a40cc6799c" alt="Map Selection" width="450" /> |
+| <!-- Main Menu --> <img width="918" height="808" alt="Screenshot 2026-10-20 232826" src="https://github.com/user-attachments/assets/71d11b2e-30dd-44b3-bb11-65eb6562f643" /> | <!-- Map Selection --> <img width="917" height="807" alt="Screenshot 2026-10-20 232852" src="https://github.com/user-attachments/assets/1a719fcd-a87d-465e-8669-16347af197b8" /> |
 
 | Leaderboard | Developers / About Us |
 | :---: | :---: |
-| <!-- Leaderboard --> <img src="https://github.com/user-attachments/assets/d5d00d40-0292-4e74-80b9-a8133a8ed8f6" alt="Leaderboard" width="450" /> | <!-- About Us --> <img src="https://github.com/user-attachments/assets/a49b3ce0-6f2a-436b-b155-75e784ee7eab" alt="About Us" width="450" /> |
+| <!-- Leaderboard --> <img width="919" height="808" alt="Screenshot 2026-10-20 232841" src="https://github.com/user-attachments/assets/b8746106-9a4c-4ab6-bdd1-230f73ed41d9" /> | <!-- About Us --> <img width="919" height="808" alt="Screenshot 2026-10-20 233907" src="https://github.com/user-attachments/assets/e6bc3b47-fabc-42e7-b082-e328f8637f17" /> |
 
 | How To Play | Exit Confirmation |
 | :---: | :---: |
-| <!-- How To Play --> <img src="https://github.com/user-attachments/assets/9d985336-edb0-4a29-8b1c-780852663686" alt="How To Play" width="450" /> | <!-- Exit Game --> <img src="https://github.com/user-attachments/assets/ee49961e-2df3-4a82-b937-b344d9ea2623" alt="Exit Game" width="450" /> |
+| <!-- How To Play --> <img width="919" height="809" alt="Screenshot 2026-10-20 233854" src="https://github.com/user-attachments/assets/9196865b-4a25-42d2-861b-86d024760ed0" /> | <!-- Exit Game --> <img width="920" height="809" alt="Screenshot 2026-10-20 233915" src="https://github.com/user-attachments/assets/1de3ef80-7f9c-48ce-bc6b-aee2f92c91ec" /> |
 
 ---
 
