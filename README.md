@@ -17,6 +17,18 @@ Developed as an academic team project by **BUP CSE - 4**.
 
 ---
 
+## 🎬 Gameplay Preview
+
+<p align="center">
+  <a href="https://youtu.be/XmeXc_eXT5Y">
+    <strong>▶️ Watch Full Gameplay on YouTube</strong>
+  </a>
+</p>
+
+---
+
+---
+
 ## 📑 Table of Contents
 
 - [Screenshots](#-screenshots)
@@ -130,9 +142,9 @@ Choose from three difficulty levels to customize your arcade experience.
 
 Team members of **BUP CSE - 4**:
 
-- **Md. Udoy Hossain Joy**
-- **Imtiyaz Ali**
-- **S M Junaed Ahamed Jimon**
+- [Md. Udoy Hossain Joy](https://github.com/ItsUdoy)
+- [Imtiyaz Ali](https://github.com/imtiyaz-apm)
+- [S M Junaed Ahamed Jimon](https://github.com/junaedahamedj-prog)
 
 ---
 
