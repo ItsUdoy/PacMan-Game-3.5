@@ -126,7 +126,7 @@ The game features three unique maps, each offering a different maze layout and g
 
 ---
 
-## ⚡ Difficulty Levels
+## ⚡Difficulty Levels
 
 Choose from three difficulty levels to customize your arcade experience.
 
@@ -150,7 +150,7 @@ Team members of **BUP CSE - 4**:
 
 ## 📄 License
 
-This project was developed for academic purposes as part of **BUP CSE - 4**.
+This project was developed for academic purposes as part of **BUP CSE - 04**.
 
 All rights reserved by the development team.
 
